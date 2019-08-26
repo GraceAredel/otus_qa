@@ -46,9 +46,9 @@ def test_title():
 
 def test_reverse():
     """reversing function test"""
-    l = [1, 2, 3, 4, 5]
-    lr = reversed(l)
-    assert list(lr) == [5, 4, 3, 2, 1]
+    lr = [1, 2, 3, 4, 5]
+    rl = reversed(lr)
+    assert list(rl) == [5, 4, 3, 2, 1]
 
 
 def test_set():
@@ -74,6 +74,7 @@ def test_dict_value():
 
 
 def test_greater_equal():
-    """another simple test to check if the number is greater or equal to a given number"""
+    """another simple test to check if the number is greater
+    or equal to a given number"""
     num = 100
     assert num >= 100
