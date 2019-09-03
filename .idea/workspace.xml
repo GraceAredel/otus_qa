@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/hw3/test_the_testing_world_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_the_testing_world_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +17,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/hw3/test_the_testing_world_api.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-528">
-                  <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+                <state relative-caret-position="-52">
+                  <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -42,8 +42,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/hw3/test_the_testing_world_api.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="281">
-                  <caret line="42" column="45" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+                <state relative-caret-position="-135">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -117,10 +117,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1138" />
-    <option name="height" value="1038" />
+    <option name="x" value="85" />
+    <option name="y" value="25" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -167,7 +167,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python_qa_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../huntbox-test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -225,17 +225,18 @@
       <updated>1566831436950</updated>
       <workItem from="1566831438911" duration="3448000" />
       <workItem from="1566839248336" duration="11470000" />
-      <workItem from="1566981757317" duration="36023000" />
+      <workItem from="1566981757317" duration="36858000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50941000" />
+    <option name="totallyTimeSpent" value="51776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.21514745" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21514745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -249,7 +250,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40643275" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.95614034" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.37719297" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -389,8 +390,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/hw3/test_the_testing_world_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+        <state relative-caret-position="-52">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
