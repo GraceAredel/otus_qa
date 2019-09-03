@@ -26,18 +26,17 @@ def test_tech_skills():
     assert response.status_code == 200
 
 
-DATA = [("first1", "middle1", "last1", "01.01.1970"),
-        ("first2", "middle2", "second2", "02.02.1970"),
-        ("first3", "middle3", "second3", "03.03.1970")]
+DATA2 = [("999999", "first1", "middle1", "last1", "01.01.1970"),
+         ("989898", "first2", "middle2", "last2", "02.02.1970"),
+         ("979797", "first3", "middle3", "last3", "03.03.1970")]
 
 
-@pytest.mark.parametrize('first_name, middle_name, last_name, date_of_birth', DATA)
-def test_create_users(first_name, middle_name, last_name, date_of_birth):
+@pytest.mark.parametrize("id, first_name, middle_name, last_name, date_of_birth", DATA2)
+def test_create_users(id, first_name, middle_name, last_name, date_of_birth):
     """try to create a few users using parametrization"""
-    response = requests.post(base_url + '/api/Students')
+    response = requests.post(base_url + '/api/studentsDetails',
+                             data={"id": id, "first_name": first_name, "middle_name": middle_name,
+                                   "last_name": last_name, "date_of_birth": date_of_birth})
     print(response.content)
-    assert response.status_code == 200
-    response_json = json.loads(response.text)
-    student_id = jsonpath.jsonpath(response_json, 'id')
-    print(student_id[0, 1, 2])
-    assert student_id[0, 1, 2] != ''
+    assert response.status_code == 201
+
