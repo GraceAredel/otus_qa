@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/hw3/test_reqres.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_reqres.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw3/test_yandex.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_yandex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw3/test_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_answer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw3/test_yandex.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,15 +18,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>case_data</find>
-      <find>fixture</find>
-    </findStrings>
-    <dirStrings>
-      <dir>C:\Users\grace\PycharmProjects\otus_qa\tests\hw3</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -105,7 +97,7 @@
       <workItem from="1566839248336" duration="11470000" />
       <workItem from="1566981757317" duration="36858000" />
       <workItem from="1567673093929" duration="417000" />
-      <workItem from="1567674746373" duration="18861000" />
+      <workItem from="1567674746373" duration="36067000" />
     </task>
     <servers />
   </component>
