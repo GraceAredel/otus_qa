@@ -7,7 +7,7 @@ def test_answer(url_param):
     print(response.status_code)
     if url_param == "ya.ru":
         assert response.status_code == 200
-    elif url_param == "gcdcdoogle.com":
+    elif url_param == "google.com":
         print("GOOOGLE!")
     else:
         print("DuckDuckGOOOOO")

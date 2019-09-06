@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/IEDriverServer.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chromedriver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geckodriver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw4/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw4/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw4/geckodriver.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw4/test_open_site.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw3/test_reqres.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_reqres.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw3/test_yandex.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_yandex.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +105,7 @@
       <workItem from="1566839248336" duration="11470000" />
       <workItem from="1566981757317" duration="36858000" />
       <workItem from="1567673093929" duration="417000" />
-      <workItem from="1567674746373" duration="14617000" />
+      <workItem from="1567674746373" duration="18861000" />
     </task>
     <servers />
   </component>

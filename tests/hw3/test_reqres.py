@@ -29,8 +29,8 @@ def test_check_type_of_content():
 
 def test_create_new_user_using_json_file():
     """basic test for a POST request = create a new user and assert it was created"""
-    file = open("C:\\Users\\grace\\PycharmProjects\\otus_qa\\tests\\hw3\\new_user.json", 'r')
-    json_input = file.read()
+    with open("new_user.json") as file:
+        json_input = file.read()
     request_json = json.loads(json_input)
     response = requests.post(basic_url() + '/api/users', request_json)
     print(response.content)

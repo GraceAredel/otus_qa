@@ -8,8 +8,9 @@ base_url = "http://thetestingworldapi.com"
 
 def test_add_new_user():
     """basic test for adding a new user and asserting it was created"""
-    f = open("C:\\Users\\grace\\PycharmProjects\\otus_qa\\tests\\hw3\\new_user_data.json", 'r')
-    request_json = json.loads(f.read())
+    with open("new_user_data.json") as file:
+        data = file.read()
+    request_json = json.loads(data)
     response = requests.post(base_url + '/api/studentsDetails', request_json)
     print(response.text)
     student_id = jsonpath.jsonpath(response.json(), 'id')
@@ -19,8 +20,9 @@ def test_add_new_user():
 
 def test_tech_skills():
     """basic test of posting a json with some tech skills"""
-    f = open("C:\\Users\\grace\\PycharmProjects\\otus_qa\\tests\\hw3\\tech_skills.json", 'r')
-    request_json = json.loads(f.read())
+    with open("tech_skills.json") as file:
+        data = file.read()
+    request_json = json.loads(data)
     response = requests.post(base_url + '/api/technicalskills', request_json)
     print(response.text)
     assert response.status_code == 200
