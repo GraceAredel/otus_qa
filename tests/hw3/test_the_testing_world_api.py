@@ -1,3 +1,4 @@
+"""API tests for a thetestingworldapi.com website"""
 import json
 import pytest
 import requests

@@ -1,3 +1,4 @@
+"""API tests for a reqres.in website"""
 import json
 import pytest
 import requests
