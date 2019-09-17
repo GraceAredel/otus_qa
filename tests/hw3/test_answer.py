@@ -1,3 +1,4 @@
+"""basic test to check status code from given url"""
 import requests
 
 

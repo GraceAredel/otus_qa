@@ -9,6 +9,7 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox", help="Browser name")
 
 
+@pytest.fixture(params=["chrome", "firefox"])
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
