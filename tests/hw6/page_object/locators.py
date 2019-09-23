@@ -19,6 +19,8 @@ class MainPageLocators(object):
     PLAYERS = (By.CSS_SELECTOR, "li.dropdown:nth-child(8) > a:nth-child(1)")
     CART = (By.CSS_SELECTOR, ".btn-inverse")
     BREADCRUMBS = (By.ID, "breadcrumbs")
+    ADD_TO_CART = (By.CLASS_NAME, "fa-shopping_cart")
+    ALERT = (By.CLASS_NAME, "alert.alert-danger.alert-dismissible")
 
 
 class AdminLoginPageLocators(object):
@@ -26,7 +28,6 @@ class AdminLoginPageLocators(object):
     USERNAME = (By.ID, "input-username")
     PASSWORD = (By.ID, "input-password")
     FORGOTTEN_PASSWORD = (By.CSS_SELECTOR, ".help-block > a:nth-child(1)")
-    ERROR = (By.CLASS_NAME, "alert.alert-danger.alert-dismissible")
     BUTTON = (By.CLASS_NAME, "btn-primary")
 
 

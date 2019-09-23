@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw6/base_methods.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw6/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/hw6/test_opencart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chromedriver_linux64.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/geckodriver-v0.25.0-linux64.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw3/test_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw3/test_answer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw4/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw4/conftest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw4/test_open_site.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chromedriver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/base_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/base_methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/test_opencart.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/test_opencart.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +38,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../huntbox-test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -105,6 +105,7 @@
       <workItem from="1568627715710" duration="70000" />
       <workItem from="1568627850382" duration="2396000" />
       <workItem from="1568630787671" duration="10610000" />
+      <workItem from="1569234352747" duration="10302000" />
     </task>
     <servers />
   </component>
