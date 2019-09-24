@@ -2,7 +2,7 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators(object):
+class BaseLocators(object):
     """A class for Main Page locators and also for locators which presented on every page"""
     TOP_MENU = (By.ID, "top")
     SEARCH_INPUT = (By.CSS_SELECTOR, ".form-control")
@@ -21,30 +21,4 @@ class MainPageLocators(object):
     BREADCRUMBS = (By.ID, "breadcrumbs")
     ADD_TO_CART = (By.CLASS_NAME, "fa-shopping_cart")
     ALERT = (By.CLASS_NAME, "alert.alert-danger.alert-dismissible")
-
-
-class AdminLoginPageLocators(object):
-    """A class for Admin Login Page locators"""
-    USERNAME = (By.ID, "input-username")
-    PASSWORD = (By.ID, "input-password")
-    EMAIL = (By.ID, "input-email")
-    FORGOTTEN_PASSWORD = (By.CSS_SELECTOR, ".help-block > a:nth-child(1)")
-    BUTTON = (By.CLASS_NAME, "btn-primary")
-    RESET_BUTTON = (By.CLASS_NAME, "fa-check")
-
-
-class CatalogPageLocators(object):
-    """A class for Catalog Page locators"""
-    HOME = (By.CLASS_NAME, "fa-home")
-    FILTER_SORT_BY = (By.ID, "input-sort")
-
-
-class ProductPageLocators(object):
-    """A class for Product Page locators"""
-    ADD_TO_CART = (By.ID, "button-cart")
-    COMPARE = (By.CLASS_NAME, "fa-exchange")
-    ADD_TO_WL = (By.XPATH, "//button[@data-original-title='Add to Wish List']")
-    ADDED_TO_WL = (By.CLASS_NAME, "alert")
-    QUANTITY = (By.ID, "input-quantity")
-
 
