@@ -44,7 +44,6 @@ class AdminPage(BasePage):
         self.driver.find_element(*AdminLoginPageLocators.PASSWORD).send_keys(password)
         self.driver.find_element(*AdminLoginPageLocators.BUTTON).click()
 
-
-TODO: def reset_password(self, email):
-    self.driver.
-    self.driver.find_element(*AdminLoginPageLocators.FORGOTTEN_PASSWORD)
+    def reset_password(self, email):
+        self.driver.find_element(*AdminLoginPageLocators.FORGOTTEN_PASSWORD).click()
+        self.driver.find_element(*AdminLoginPageLocators.EMAIL).send_keys(email)

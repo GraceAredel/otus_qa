@@ -37,7 +37,7 @@ def hello_function():
     print('end tests for a function')
 
 
-@pytest.fixture(scope="session", autouse=True)
+# @pytest.fixture(scope="session", autouse=True)
 def auto_session_resource(request):
     """ auto session resource fixture
     """

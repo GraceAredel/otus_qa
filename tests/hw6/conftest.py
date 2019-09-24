@@ -1,5 +1,4 @@
 import pytest
-import sys
 
 from selenium import webdriver
 
@@ -9,33 +8,20 @@ def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox", help="Browser name")
 
 
-@pytest.fixture(params=["chrome", "firefox"])
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
     if browser == 'firefox':
-        options = webdriver.FirefoxOptions()
-        options.add_argument("start-maximized")
-        options.add_argument("--headless")
-        profile = webdriver.FirefoxProfile()
-        profile.set_preference('app.update.auto', False)
-        profile.set_preference('app.update.enabled', False)
-        profile.accept_untrusted_certs = True
-        wd = webdriver.Firefox(firefox_options=options)
-
+        wd = webdriver.Firefox()
     elif browser == 'chrome':
-        options = webdriver.ChromeOptions()
-        options.add_argument("start-maximized")
-        options.add_argument("--headless")
-        wd = webdriver.Chrome(chrome_options=options)
-
+        wd = webdriver.Chrome()
     else:
         print("Internet Explorer is a crap!")
-        wd = webdriver.Ie(executable_path="\\home\\grace\\PycharmProjects\\otus_qa\\IEDriverServer.exe")
+        wd = webdriver.Ie()
         wd.quit()
-        sys.exit(1)
     yield wd
     request.addfinalizer(wd.quit)
+    wd.get(request.config.getoption("--url"))
 
 
 @pytest.fixture(scope="session")
