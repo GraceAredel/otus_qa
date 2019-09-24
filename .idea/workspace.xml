@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chromedriver_linux64.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geckodriver-v0.25.0-linux64.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/locators/AdminLogin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/locators/Base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/locators/Catalog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/locators/Product.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/page_objects/AdminPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/geckodriver.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw6/base_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/base_methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/hw6/test_opencart.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/hw6/test_opencart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/base_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/BasePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/page_object/locators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/hw6/test_opencart.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_opencart.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +44,14 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/locators" />
+      <recent name="$PROJECT_DIR$/page_objects" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -64,12 +73,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/hw4" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/hw4/test_open_site.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_opencart.py" />
       <option name="PARAMETERS" value="-s -v" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,7 +114,8 @@
       <workItem from="1568627715710" duration="70000" />
       <workItem from="1568627850382" duration="2396000" />
       <workItem from="1568630787671" duration="10610000" />
-      <workItem from="1569234352747" duration="10302000" />
+      <workItem from="1569234352747" duration="17865000" />
+      <workItem from="1569329312369" duration="10621000" />
     </task>
     <servers />
   </component>
@@ -130,6 +140,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/otus_qa$test_reqres.coverage" NAME="test_reqres Coverage Results" MODIFIED="1567691221369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/hw3" />
-    <SUITE FILE_PATH="coverage/otus_qa$test_open_site.coverage" NAME="test_open_site Coverage Results" MODIFIED="1567695793631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/hw4" />
+    <SUITE FILE_PATH="coverage/otus_qa$test_open_site.coverage" NAME="test_open_site Coverage Results" MODIFIED="1569336852954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

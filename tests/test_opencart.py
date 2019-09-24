@@ -1,20 +1,21 @@
 """main module for tests"""
 import pytest
-from tests.hw6.base_methods import BasePage, AdminPage, MainPageLocators
+
+from locators.Base import BaseLocators
 
 
 @pytest.fixture(scope="function")
 def base_page(request, driver):
     """fixture for opening a page and declaring a driver"""
     driver.get(request.config.getoption("--address"))
-    return BasePage(driver)
+    # return BasePage(driver)
 
 
 @pytest.fixture(scope="function")
 def admin_page(request, driver):
     """fixture for opening a page and declaring a driver"""
     driver.get(request.config.getoption("--address") + "/admin/")
-    return AdminPage(driver)
+    # return AdminPage(driver)
 
 
 @pytest.mark.usefixtures("base_page")
@@ -23,7 +24,7 @@ class BaseTests:
     and all pages at the same time"""
     def test_your_store_exists(self):
         """check that your store button presents on base page"""
-        assert base_page.find_element(*MainPageLocators.HOME)
+        assert base_page.find_element(*BaseLocators.HOME)
 
     def test_search(self):
         """searching test"""
