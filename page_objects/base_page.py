@@ -1,4 +1,4 @@
-from locators.Base import BaseLocators
+from locators.base import BaseLocators
 
 
 class BasePage:

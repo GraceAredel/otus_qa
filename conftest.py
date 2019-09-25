@@ -1,11 +1,13 @@
 import pytest
-
 from selenium import webdriver
 
 
 def pytest_addoption(parser):
-    parser.addoption("--address", action="store", default="http://127.0.0.1/opencart/", help="Opencard address")
-    parser.addoption("--browser", action="store", default="firefox", help="Browser name")
+    parser.addoption("--address", action="store",
+                     default="http://127.0.0.1/opencart/",
+                     help="Opencard address")
+    parser.addoption("--browser", action="store",
+                     default="firefox", help="Browser name")
 
 
 @pytest.fixture(scope="session", autouse=True)

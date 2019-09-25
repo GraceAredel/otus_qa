@@ -2,7 +2,7 @@
 from selenium.webdriver.common.by import By
 
 
-class AdminLoginPageLocators(object):
+class AdminLocators(object):
     """A class for Admin Login Page locators"""
     USERNAME = (By.ID, "input-username")
     PASSWORD = (By.ID, "input-password")
