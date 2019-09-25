@@ -1,3 +1,4 @@
+"""module for functions from locators"""
 from locators.base import BaseLocators
 
 

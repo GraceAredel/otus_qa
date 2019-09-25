@@ -1,31 +1,29 @@
 """main module for tests"""
 import pytest
-from page_objects import admin_page, base_page
+
+from locators.base import BaseLocators
+from page_objects.base_page import BasePage
+from page_objects.admin_page import AdminPage
 
 
 @pytest.fixture(scope="function")
 def base_page(request, driver):
     """fixture for opening a page and declaring a driver"""
     driver.get(request.config.getoption("--address"))
-    return base_page
+    return BasePage(driver)
 
 
 @pytest.fixture(scope="function")
 def admin_page(request, driver):
     """fixture for opening a page and declaring a driver"""
     driver.get(request.config.getoption("--address") + "/admin/")
-    return admin_page
+    return AdminPage(driver)
 
 
 @pytest.mark.usefixtures("base_page")
 class BaseTests:
     """tests for functions that present on main page
     and all pages at the same time"""
-
-    def admim_page(self, request, driver):
-        """fixture for opening a page and declaring a driver"""
-        driver.get(request.config.getoption("--address"))
-        return base_page
 
     def test_your_store_exists(self):
         """check that your store button presents on base page"""

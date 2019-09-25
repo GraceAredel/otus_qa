@@ -1,8 +1,10 @@
+"""module for functions from locators"""
 from locators.admin import AdminLocators
 
 
 class AdminPage:
     """base class for methods on admin page"""
+
     def __init__(self, driver):
         self.driver = driver
 
