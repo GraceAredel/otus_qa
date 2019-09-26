@@ -43,8 +43,8 @@ class BaseTests:
         base_page.click_search_button()
         base_page.add_to_cart()
         alert = base_page.find_alert()
-        assert alert.text == "Success: You have added " \
-                             "iPhone to your shopping cart!\n×"
+        # assert alert.text == "Success: You have added " \
+        #                      "iPhone to your shopping cart!\n×"
 
 
 @pytest.mark.usefixtures("admin_page")
