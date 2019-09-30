@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a6eb5b7-e746-4f59-b661-9dba189baf91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/locators/AdminLocators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locators/BaseLocators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locators/CatalogLocators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/locators/ProductLocators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/otus_qa.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locators/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/locators/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/locators/catalog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/locators/product.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_objects/admin_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_objects/admin_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_opencart.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_opencart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +130,7 @@
       <workItem from="1569341373578" duration="14625000" />
       <workItem from="1569426251016" duration="6196000" />
       <workItem from="1569509701365" duration="2840000" />
-      <workItem from="1569832775766" duration="2078000" />
+      <workItem from="1569832775766" duration="2890000" />
     </task>
     <servers />
   </component>
