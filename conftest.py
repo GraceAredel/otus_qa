@@ -22,8 +22,6 @@ def driver(request):
         wd = webdriver.Ie()
         wd.quit()
     yield wd
-    request.addfinalizer(wd.quit)
-    wd.get(request.config.getoption("--url"))
 
 
 @pytest.fixture(scope="session")

@@ -1,5 +1,5 @@
 """module for functions from locators"""
-from locators.admin import AdminLocators
+from locators.AdminLocators import AdminLocators
 
 
 class AdminPage:

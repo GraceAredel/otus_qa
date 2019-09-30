@@ -1,3 +1,4 @@
+selenium
 pytest>=4.6.0
 jsonpath==0.82
 pylint

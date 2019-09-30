@@ -1,7 +1,7 @@
 """main module for tests"""
 import pytest
 
-from locators.base import BaseLocators
+from locators.BaseLocators import BaseLocators
 from page_objects.base_page import BasePage
 from page_objects.admin_page import AdminPage
 
@@ -21,7 +21,7 @@ def admin_page(request, driver):
 
 
 @pytest.mark.usefixtures("base_page")
-class BaseTests:
+class TestBase:
     """tests for functions that present on main page
     and all pages at the same time"""
 
@@ -48,7 +48,7 @@ class BaseTests:
 
 
 @pytest.mark.usefixtures("admin_page")
-class LoginTests:
+class TestsLogin:
     """tests for admin page"""
 
     def test_admin_login(self, login="ocuser", password="PASSWORD"):
