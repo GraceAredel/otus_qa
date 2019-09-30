@@ -1,5 +1,5 @@
 """module for functions from locators"""
-from locators.base import BaseLocators
+from locators.BaseLocators import BaseLocators
 
 
 class BasePage:
