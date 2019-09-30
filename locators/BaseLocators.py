@@ -19,6 +19,8 @@ class BaseLocators(object):
     PLAYERS = (By.CSS_SELECTOR, "li.dropdown:nth-child(8) > a:nth-child(1)")
     CART = (By.CSS_SELECTOR, ".btn-inverse")
     BREADCRUMBS = (By.ID, "breadcrumbs")
-    ADD_TO_CART = (By.CLASS_NAME, "fa-shopping_cart")
-    ALERT = (By.CLASS_NAME, "alert.alert-danger.alert-dismissible")
+    ADD_TO_CART = (By.CLASS_NAME, "fa-shopping-cart")
+    ALERT = (By.CSS_SELECTOR, ".alert")
+    H4 = (By.TAG_NAME, "h4")
+    H1 = (By.TAG_NAME, "h1")
 

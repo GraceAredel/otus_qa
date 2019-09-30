@@ -8,6 +8,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def _get_element(self, *locator):
+        return self.driver.find_element(*locator)
+
     def open_main_page(self):
         your_store = self.driver.find_element(*BaseLocators.HOME)
         your_store.click()
@@ -27,4 +30,5 @@ class BasePage:
         add[2].click()
 
     def find_alert(self):
-        self.driver.find_element(*BaseLocators.ALERT)
+        return self.driver.find_element(*BaseLocators.ALERT)
+

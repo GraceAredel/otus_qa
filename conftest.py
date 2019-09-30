@@ -20,8 +20,11 @@ def driver(request):
     else:
         print("Internet Explorer is a crap!")
         wd = webdriver.Ie()
-        wd.quit()
-    yield wd
+
+    request.addfinalizer(wd.quit)
+    wd.get(request.config.getoption("--address"))
+
+    return wd
 
 
 @pytest.fixture(scope="session")
