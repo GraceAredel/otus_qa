@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 
+from page_objects.admin_page import AdminPage
+
 
 def pytest_addoption(parser):
     parser.addoption("--address", action="store",
@@ -30,3 +32,12 @@ def driver(request):
 @pytest.fixture(scope="session")
 def opencart(request):
     return request.config.getoption("--address")
+
+
+@pytest.fixture(scope="session")
+def login(driver, request):
+    """login to admin page"""
+    url = request.config.getoption("--address") + 'admin/'
+    driver.get(url)
+    admin_page = AdminPage(driver)
+    admin_page.login(login="admin", password="moonlight")

@@ -407,3 +407,16 @@ JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 680:
 1569850494677	Marionette	INFO	Listening on port 35363
 1569850494735	Marionette	WARN	TLS certificate errors will be ignored for this session
 1569850507941	Marionette	INFO	Stopped listening on port 35363
+[Parent 30917, Gecko_IOThread] WARNING: pipe error (82): Соединение разорвано другой стороной: file /build/firefox-JYFpZT/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 30917, Gecko_IOThread] WARNING: pipe error (73): Соединение разорвано другой стороной: file /build/firefox-JYFpZT/firefox-69.0.1+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1569850599288	Marionette	INFO	Stopped listening on port 37457
+1571065676964	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuLYfVZ"
+1571065678099	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1571065678100	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1571065678100	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1571065678100	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1571065681564	Marionette	INFO	Listening on port 41375
+1571065681626	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:17590): dconf-WARNING **: 18:08:58.679: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Отказано в доступе
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.

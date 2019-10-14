@@ -1,4 +1,4 @@
-"""module for functions from locators"""
+"""module for methods from locators"""
 from locators.BaseLocators import BaseLocators
 
 
