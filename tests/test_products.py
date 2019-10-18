@@ -1,19 +1,28 @@
 """module for products page tests"""
 import pytest
+import time
 
-from locators.ProductsPageLocators import ProductPageLocators
 from page_objects.products_page import ProductsPage
 
 
 @pytest.fixture(scope="function")
 def products_page(request, driver, login):
     """fixture for opening a page and declaring a driver"""
-    driver.get(add_token(request.config.getoption("--address") +
-               "admin/index.php?route=catalog/product&user_token=" + login)
+    url = request.config.getoption("--address") + "admin/index.php?route=catalog/product" + "&user_token=" + login
+    print(url)
+    driver.get(url)
     return ProductsPage(driver)
 
+# def add_token(url, login):
+#     parsed = parse.urlparse(url)
+#     qs = {key: value[0] for key, value in qs.items() if len(value) == 1}
+#     qs['user_token'] = login
+#     new_url = parsed._replace(query=parse.urlencode(qs))
+#     print(parse.urlunparse(new_url))
+#     assert False
+#     return parse.urlunparse(new_url)
 
-@pytest.mark.usefixtures("login")
+
 @pytest.mark.usefixtures("products_page")
 class TestProductsPage:
     """tests for products page"""
@@ -21,10 +30,13 @@ class TestProductsPage:
     def test_add_product(self, products_page):
         """test for new product creation"""
         products_page.click_create_product()
-        products_page.fill_product_name_field(keys="new product")
-        products_page.fill_meta_tag_field(keys="new meta tag")
+        products_page.fill_product_name_field("new product")
+        time.sleep(10)
+        products_page.fill_meta_tag_title_field("new meta tag")
+        time.sleep(10)
         products_page.open_data_tab()
-        products_page.fill_model_name_field(keys="new model")
+        time.sleep(10)
+        products_page.fill_model_name_field("new model")
         products_page.click_save_changes()
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
@@ -33,18 +45,18 @@ class TestProductsPage:
         """here i will create a new product first, then change it
         - to not overusing the existing products"""
         products_page.click_create_product()
-        products_page.fill_product_name_field(keys="new product to edit")
-        products_page.fill_meta_tag_field(keys="gibberish")
+        products_page.fill_product_name_field("new product to edit")
+        products_page.fill_meta_tag_title_field("gibberish")
         products_page.open_data_tab()
-        products_page.fill_model_name_field(keys="totally new model")
+        products_page.fill_model_name_field("totally new model")
         products_page.click_save_changes()
         alert = products_page.find_alert()
-        assert alert.text == "Success: You have modified products!"
-        products_page.fill_product_name_field(keys="new product to edit")
+        assert alert.text == "Success: You have modified products!\n×"
+        products_page.fill_product_name_field("new product to edit")
         products_page.click_filter_button()
         products_page.click_edit_product()
         # probably i will need to scroll this element to view?
-        products_page.fill_meta_tag_field(keys="new tag")
+        products_page.fill_meta_tag_title_field("new tag")
         products_page.click_save_changes()
         alert = products_page.find_alert()
         assert alert.text == " Success: You have modified products!\n×"
@@ -53,21 +65,21 @@ class TestProductsPage:
         """here i will create a new product first, then delete it,
         then try to find deleted product and make sure there are nothing"""
         products_page.click_create_product()
-        products_page.fill_product_name_field(keys="delete me")
-        products_page.fill_meta_tag_field(keys="delete me")
+        products_page.fill_product_name_field("delete me")
+        products_page.fill_meta_tag_title_field("delete me")
         products_page.open_data_tab()
-        products_page.fill_model_name_field(keys="delete me")
+        products_page.fill_model_name_field("delete me")
         products_page.click_save_changes()
         alert = products_page.find_alert()
-        assert alert.text == "Success: You have modified products!"
-        products_page.fill_product_name_field(keys="delete me")
+        assert alert.text == "Success: You have modified products!\n×"
+        products_page.fill_product_name_field("delete me")
         products_page.click_filter_button()
         products_page.click_in_checkbox()
         products_page.click_delete_product()
         products_page.switch_to.alert.accept()
         alert = products_page.find_alert()
         assert alert.text == " Success: You have modified products!\n×"
-        products_page.fill_product_name_field(keys="delete me")
+        products_page.fill_product_name_field("delete me")
         products_page.click_filter_button()
         assert "No results!" in products_page.page_source
 

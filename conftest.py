@@ -7,7 +7,7 @@ from page_objects.admin_page import AdminPage
 
 def pytest_addoption(parser):
     parser.addoption("--address", action="store",
-                     default="http://127.0.0.1/opencart/",
+                     default="http://localhost/opencart/",
                      help="Opencard address")
     parser.addoption("--browser", action="store",
                      default="firefox", help="Browser name")
@@ -24,7 +24,7 @@ def driver(request):
         print("Internet Explorer is a crap!")
         wd = webdriver.Ie()
 
-    request.addfinalizer(wd.quit)
+    # request.addfinalizer(wd.quit)
     wd.get(request.config.getoption("--address"))
 
     return wd
@@ -43,18 +43,16 @@ def login(driver, request):
     admin_page = AdminPage(driver)
     admin_page.login(login="admin", password="moonlight")
     current_url = driver.current_url
-    print(current_url)
     parsed = parse.urlparse(current_url)
-    print(parsed)
     parse.parse_qs(parsed.query)
-    token = parse.parse_qs(parsed.query)['user_token']
+    token = parse.parse_qs(parsed.query)['user_token'][0]
     return token
 
 
 @pytest.mark.usefixtures("login")
-def add_token(url, token):
+def add_token(url, login):
     parsed = parse.urlparse(url)
     qs = parse.parse_qs(parsed.query)
-    token = qs['user_token']
-    new_link = parsed._replace(query=parse.urlencode(qs))
+    qs['user_token'] = login
+    new_url = parsed._replace(query=parse.urlencode(qs))
     return parse.urlunparse(new_url)
