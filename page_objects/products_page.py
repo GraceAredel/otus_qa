@@ -2,12 +2,14 @@
 from selenium.webdriver.common.action_chains import ActionChains
 
 from locators.ProductsPageLocators import ProductPageLocators
+from page_objects.base_page import BasePage
 
 
-class ProductsPage:
+class ProductsPage(BasePage):
     """Class for methods for Products Page"""
 
     def __init__(self, driver):
+        super().__init__(driver)
         self.driver = driver
 
     def open_catalog(self):
@@ -20,13 +22,16 @@ class ProductsPage:
                 catalog_element.click()
                 break
 
-    def edit_product(self):
+    def click_create_product(self):
+        self.driver.find_element(*ProductPageLocators.ADD_NEW).click()
+
+    def click_edit_product(self):
         self.driver.find_element(*ProductPageLocators.EDIT).click()
 
-    def delete_product(self):
+    def click_delete_product(self):
         self.driver.find_element(*ProductPageLocators.DELETE).click()
 
-    def save_changes(self):
+    def click_save_changes(self):
         self.driver.find_element(*ProductPageLocators.SAVE).click()
 
     def click_filter_button(self):
@@ -38,6 +43,19 @@ class ProductsPage:
         ActionChains(self).send_keys_to_element(*ProductPageLocators.PRODUCT_NAME,
                                                 keys).perform()
 
-    def meta_tag_edit(self, keys):
+    def fill_meta_tag_field(self, keys):
         ActionChains(self).send_keys_to_element(*ProductPageLocators.META_TAG,
                                                 keys).perform()
+
+    def clear_product_name_field(self):
+        self._find_and_clear_element(*ProductPageLocators.PRODUCT_NAME)
+
+    def open_data_tab(self):
+        self.driver.find_element(*ProductPageLocators.META_TAG).click()
+
+    def fill_model_name_field(self, keys):
+        ActionChains(self).send_keys_to_element(*ProductPageLocators.MODEL_NAME,
+                                                keys).perform()
+
+    def click_in_checkbox(self):
+        self.driver.find_element(*ProductPageLocators.CHECKBOX).click()

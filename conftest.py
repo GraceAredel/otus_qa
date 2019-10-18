@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from urllib import parse
 
 from page_objects.admin_page import AdminPage
 
@@ -41,3 +42,19 @@ def login(driver, request):
     driver.get(url)
     admin_page = AdminPage(driver)
     admin_page.login(login="admin", password="moonlight")
+    current_url = driver.current_url
+    print(current_url)
+    parsed = parse.urlparse(current_url)
+    print(parsed)
+    parse.parse_qs(parsed.query)
+    token = parse.parse_qs(parsed.query)['user_token']
+    return token
+
+
+@pytest.mark.usefixtures("login")
+def add_token(url, token):
+    parsed = parse.urlparse(url)
+    qs = parse.parse_qs(parsed.query)
+    token = qs['user_token']
+    new_link = parsed._replace(query=parse.urlencode(qs))
+    return parse.urlunparse(new_url)

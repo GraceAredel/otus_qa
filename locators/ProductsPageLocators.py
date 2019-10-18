@@ -12,3 +12,6 @@ class ProductPageLocators(object):
     FILTER = (By.CLASS_NAME, "fa-filter")
     PRODUCT_NAME = (By.NAME, "filter_name")
     META_TAG = (By.ID, "input-meta-keyword1")
+    DATA_TAB = (By.LINK_TEXT, "data")
+    MODEL_NAME = (By.NAME, "model")
+    CHECKBOX = (By.NAME, "selected[]")
