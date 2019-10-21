@@ -3,6 +3,7 @@ from selenium import webdriver
 from urllib import parse
 
 from page_objects.admin_page import AdminPage
+from page_objects.products_page import ProductsPage
 
 
 def pytest_addoption(parser):
@@ -56,3 +57,24 @@ def add_token(url, login):
     qs['user_token'] = login
     new_url = parsed._replace(query=parse.urlencode(qs))
     return parse.urlunparse(new_url)
+
+
+# def add_token(url, login):
+#     parsed = parse.urlparse(url)
+#     qs = {key: value[0] for key, value in qs.items() if len(value) == 1}
+#     qs['user_token'] = login
+#     new_url = parsed._replace(query=parse.urlencode(qs))
+#     print(parse.urlunparse(new_url))
+#     assert False
+#     return parse.urlunparse(new_url)
+
+
+@pytest.mark.usefixtures("login")
+@pytest.fixture(scope="function", autouse=True)
+def products_page(request, driver, login):
+    """fixture for opening a page and declaring a driver"""
+    url = request.config.getoption("--address") + \
+        "admin/index.php?route=catalog/product" + "&user_token=" + login
+    driver.get(url)
+    print("TESTTESTTEST")
+    return ProductsPage(driver)

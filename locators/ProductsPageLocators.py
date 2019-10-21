@@ -10,7 +10,7 @@ class ProductPageLocators(object):
     EDIT = (By.CLASS_NAME, "fa-pencil")
     SAVE = (By.CLASS_NAME, "fa-save")
     FILTER = (By.CLASS_NAME, "fa-filter")
-    PRODUCT_NAME = (By.NAME, "product_description[1][name]")
+    PRODUCT_NAME = (By.ID, "input-name")
     META_TAG_TITLE = (By.ID, "input-meta-title1")
     DATA_TAB = (By.LINK_TEXT, "Data")
     MODEL_NAME = (By.NAME, "model")

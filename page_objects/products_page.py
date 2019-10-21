@@ -1,4 +1,6 @@
 """module for methods from locators"""
+import time
+
 from selenium.webdriver.common.action_chains import ActionChains
 
 from locators.ProductsPageLocators import ProductPageLocators
@@ -39,8 +41,8 @@ class ProductsPage(BasePage):
         btn[2].click()
 
     def fill_product_name_field(self, keys):
-        element = self.driver.find_element(*ProductPageLocators.PRODUCT_NAME)
-        ActionChains(self.driver).send_keys_to_element(element, keys).perform()
+        elements = self.driver.find_elements(*ProductPageLocators.PRODUCT_NAME)
+        ActionChains(self.driver).send_keys_to_element(elements[0], keys).perform()
 
     def fill_meta_tag_title_field(self, keys):
         element = self.driver.find_element(*ProductPageLocators.META_TAG_TITLE)
@@ -50,7 +52,7 @@ class ProductsPage(BasePage):
         self._find_and_clear_element(*ProductPageLocators.PRODUCT_NAME)
 
     def open_data_tab(self):
-        self.driver.find_element(*ProductPageLocators.DATA_TAB)
+        self.driver.find_element(*ProductPageLocators.DATA_TAB).click()
 
     def fill_model_name_field(self, keys):
         element = self.driver.find_element(*ProductPageLocators.MODEL_NAME)
@@ -66,3 +68,6 @@ class ProductsPage(BasePage):
         self.open_data_tab()
         self.fill_model_name_field(model)
         self.click_save_changes()
+        time.sleep(3)
+        alert = self.find_alert()
+        assert alert.text == "Success: You have modified products!\n×"

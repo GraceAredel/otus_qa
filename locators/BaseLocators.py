@@ -20,7 +20,7 @@ class BaseLocators(object):
     CART = (By.CSS_SELECTOR, ".btn-inverse")
     BREADCRUMBS = (By.ID, "breadcrumbs")
     ADD_TO_CART = (By.CLASS_NAME, "fa-shopping-cart")
-    ALERT = (By.CSS_SELECTOR, ".alert")
+    ALERT = (By.CLASS_NAME, "alert-success")
     H4 = (By.TAG_NAME, "h4")
     H1 = (By.TAG_NAME, "h1")
 
