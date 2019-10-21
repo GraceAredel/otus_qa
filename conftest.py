@@ -76,5 +76,4 @@ def products_page(request, driver, login):
     url = request.config.getoption("--address") + \
         "admin/index.php?route=catalog/product" + "&user_token=" + login
     driver.get(url)
-    print("TESTTESTTEST")
     return ProductsPage(driver)
