@@ -18,13 +18,13 @@ def driver(request):
     browser = request.config.getoption("--browser")
     if browser == 'firefox':
         wd = webdriver.Firefox()
+        wd.maximize_window()
     elif browser == 'chrome':
         wd = webdriver.Chrome()
     else:
         print("Internet Explorer is a crap!")
         wd = webdriver.Ie()
 
-    # request.addfinalizer(wd.quit)
     wd.get(request.config.getoption("--address"))
 
     return wd

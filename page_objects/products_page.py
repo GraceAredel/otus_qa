@@ -40,19 +40,11 @@ class ProductsPage(BasePage):
 
     def fill_product_name_field(self, keys):
         element = self.driver.find_element(*ProductPageLocators.PRODUCT_NAME)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element)
-        actions.click()
-        actions.send_keys(keys)
-        actions.perform()
+        ActionChains(self.driver).send_keys_to_element(element, keys).perform()
 
     def fill_meta_tag_title_field(self, keys):
-        element = self.driver.find_element(ProductPageLocators.META_TAG_TITLE)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element)
-        actions.click()
-        actions.send_keys(keys)
-        actions.perform()
+        element = self.driver.find_element(*ProductPageLocators.META_TAG_TITLE)
+        ActionChains(self.driver).send_keys_to_element(element, keys).perform()
 
     def clear_product_name_field(self):
         self._find_and_clear_element(*ProductPageLocators.PRODUCT_NAME)
@@ -62,11 +54,15 @@ class ProductsPage(BasePage):
 
     def fill_model_name_field(self, keys):
         element = self.driver.find_element(*ProductPageLocators.MODEL_NAME)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element)
-        actions.click()
-        actions.send_keys(keys)
-        actions.perform()
+        ActionChains(self.driver).send_keys_to_element(element, keys).perform()
 
     def click_in_checkbox(self):
         self.driver.find_element(*ProductPageLocators.CHECKBOX).click()
+
+    def create_new_product(self, name, meta, model):
+        self.click_create_product()
+        self.fill_product_name_field(name)
+        self.fill_meta_tag_title_field(meta)
+        self.open_data_tab()
+        self.fill_model_name_field(model)
+        self.click_save_changes()

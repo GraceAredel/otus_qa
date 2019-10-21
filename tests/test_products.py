@@ -29,33 +29,19 @@ class TestProductsPage:
 
     def test_add_product(self, products_page):
         """test for new product creation"""
-        products_page.click_create_product()
-        products_page.fill_product_name_field("new product")
-        time.sleep(10)
-        products_page.fill_meta_tag_title_field("new meta tag")
-        time.sleep(10)
-        products_page.open_data_tab()
-        time.sleep(10)
-        products_page.fill_model_name_field("new model")
-        products_page.click_save_changes()
+        products_page.create_new_product("new product", "new meta tag", "new model")
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
 
     def test_change_product(self, products_page):
         """here i will create a new product first, then change it
         - to not overusing the existing products"""
-        products_page.click_create_product()
-        products_page.fill_product_name_field("new product to edit")
-        products_page.fill_meta_tag_title_field("gibberish")
-        products_page.open_data_tab()
-        products_page.fill_model_name_field("totally new model")
-        products_page.click_save_changes()
+        products_page.create_new_product("new product to edit", "gibberish", "new model")
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
         products_page.fill_product_name_field("new product to edit")
         products_page.click_filter_button()
         products_page.click_edit_product()
-        # probably i will need to scroll this element to view?
         products_page.fill_meta_tag_title_field("new tag")
         products_page.click_save_changes()
         alert = products_page.find_alert()
@@ -64,12 +50,7 @@ class TestProductsPage:
     def test_delete_product(self, products_page):
         """here i will create a new product first, then delete it,
         then try to find deleted product and make sure there are nothing"""
-        products_page.click_create_product()
-        products_page.fill_product_name_field("delete me")
-        products_page.fill_meta_tag_title_field("delete me")
-        products_page.open_data_tab()
-        products_page.fill_model_name_field("delete me")
-        products_page.click_save_changes()
+        products_page.create_new_product("delete me", "delete me", "delete me")
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
         products_page.fill_product_name_field("delete me")
