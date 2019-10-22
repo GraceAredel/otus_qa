@@ -2283,3 +2283,5 @@ bail@chrome://marionette/content/sync.js:237:64
 1571671736192	Marionette	WARN	TimedPromise timed out after 0 ms: stacktrace:
 bail@chrome://marionette/content/sync.js:237:64
 1571671746829	Marionette	INFO	Stopped listening on port 36731
+[Parent 27736, Gecko_IOThread] WARNING: pipe error (122): Соединение разорвано другой стороной: file /build/firefox-EYLW8k/firefox-69.0.2+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+1571735393309	Marionette	INFO	Stopped listening on port 37717
