@@ -56,6 +56,7 @@ class ProductsPage(BasePage):
         self._find_and_clear_element(*ProductPageLocators.PRODUCT_NAME)
 
     def open_data_tab(self):
+        self._wait_element(*ProductPageLocators.DATA_TAB)
         self.driver.find_element(*ProductPageLocators.DATA_TAB).click()
 
     def fill_model_name_field(self, keys):
@@ -66,6 +67,7 @@ class ProductsPage(BasePage):
         self.driver.find_element(*ProductPageLocators.CHECKBOX).click()
 
     def create_new_product(self, name, meta, model):
+        self._wait_element_clickable(*ProductPageLocators.ADD_NEW, 5)
         self.click_create_product()
         self.fill_product_name_field(name)
         self.fill_meta_tag_title_field(meta)

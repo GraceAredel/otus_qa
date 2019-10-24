@@ -12,11 +12,14 @@ def pytest_addoption(parser):
                      help="Opencard address")
     parser.addoption("--browser", action="store",
                      default="firefox", help="Browser name")
+    parser.addoption("--wait", action="store",
+                     default=0, help="Waiting")
 
 
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
+    time_to_wait = request.config.getoption("--wait")
     if browser == 'firefox':
         wd = webdriver.Firefox()
         wd.maximize_window()
@@ -26,6 +29,7 @@ def driver(request):
         print("Internet Explorer is a crap!")
         wd = webdriver.Ie()
 
+    wd.implicitly_wait(time_to_wait)
     wd.get(request.config.getoption("--address"))
 
     return wd

@@ -1,5 +1,8 @@
 """module for methods from locators"""
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementNotInteractableException
 
 from locators.BaseLocators import BaseLocators
 
@@ -12,6 +15,22 @@ class BasePage:
 
     def _get_element(self, *locator):
         return self.driver.find_element(*locator)
+
+    def _wait_element(self, by, value, delay=25):
+        try:
+            WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((by, value)))
+            element = self.driver.find_element(by, value)
+            return element
+        except (NoSuchElementException, TimeoutException):
+            return False
+
+    def _wait_element_clickable(self, by, value, delay=25):
+        try:
+            WebDriverWait(self.driver, delay).until(EC.element_to_be_clickable((by, value)))
+            element = self.driver.find_element(by, value)
+            return element
+        except ElementNotInteractableException:
+            return False
 
     def _find_and_clear_element(self, by, value):
         element = self.driver.find_element(by, value)
@@ -38,5 +57,3 @@ class BasePage:
 
     def find_alert(self):
         return self.driver.find_element(*BaseLocators.ALERT)
-
-
