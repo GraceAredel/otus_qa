@@ -57,3 +57,14 @@ class BasePage:
 
     def find_alert(self):
         return self.driver.find_element(*BaseLocators.ALERT)
+
+    def accept_alert(self):
+        obj = self.driver.switch_to.alert
+        obj.accept()
+
+    def find_in_page_source(self, text):
+        html_source = self.driver.page_source
+        if text in html_source:
+            return True
+        else:
+            return False

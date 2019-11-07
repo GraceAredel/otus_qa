@@ -8,7 +8,7 @@ from page_objects.products_page import ProductsPage
 
 def pytest_addoption(parser):
     parser.addoption("--address", action="store",
-                     default="http://localhost/opencart/",
+                     default="https://localhost/",
                      help="Opencard address")
     parser.addoption("--browser", action="store",
                      default="firefox", help="Browser name")
@@ -46,7 +46,7 @@ def login(driver, request):
     url = request.config.getoption("--address") + 'admin/'
     driver.get(url)
     admin_page = AdminPage(driver)
-    admin_page.login(login="admin", password="moonlight")
+    admin_page.login(login="user", password="bitnami1")
     current_url = driver.current_url
     parsed = parse.urlparse(current_url)
     parse.parse_qs(parsed.query)
@@ -81,3 +81,10 @@ def products_page(request, driver, login):
         "admin/index.php?route=catalog/product" + "&user_token=" + login
     driver.get(url)
     return ProductsPage(driver)
+
+
+@pytest.fixture(scope="function")
+def refresh_page(driver):
+    driver.refresh()
+    yield
+    driver.refresh()

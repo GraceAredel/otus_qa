@@ -13,7 +13,11 @@ class TestProductsPage:
         """test for new product creation"""
         products_page.create_new_product("new product",
                                          "new meta tag", "new model")
+        time.sleep(3)
+        alert = products_page.find_alert()
+        assert alert.text == "Success: You have modified products!\n×"
 
+    @pytest.mark.usefixtures("refresh_page")
     @pytest.mark.usefixtures("products_page")
     def test_change_product(self, products_page):
         """here i will create a new product first, then change it
@@ -22,8 +26,8 @@ class TestProductsPage:
                                          "gibberish", "edit model")
         time.sleep(3)
         alert = products_page.find_alert()
-        assert alert.text == " Success: You have modified products!\n×"
-        products_page.fill_product_name_field("new product to edit")
+        assert alert.text == "Success: You have modified products!\n×"
+        products_page.fill_product_name_filter("new product to edit")
         products_page.click_filter_button()
         products_page.click_edit_product()
         products_page.fill_meta_tag_title_field("new tag")
@@ -32,19 +36,21 @@ class TestProductsPage:
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
 
+    @pytest.mark.usefixtures("refresh_page")
     @pytest.mark.usefixtures("products_page")
     def test_delete_product(self, products_page):
         """here i will create a new product first, then delete it,
         then try to find deleted product and make sure there are nothing"""
         products_page.create_new_product("delete me", "delete me", "delete me")
-        products_page.fill_product_name_field("delete me")
+        products_page.fill_product_name_filter("delete me")
         products_page.click_filter_button()
         products_page.click_in_checkbox()
         products_page.click_delete_product()
-        products_page.switch_to.alert.accept()
+        products_page.accept_alert()
         time.sleep(3)
         alert = products_page.find_alert()
         assert alert.text == "Success: You have modified products!\n×"
-        products_page.fill_product_name_field("delete me")
+        products_page.fill_product_name_filter("delete me")
         products_page.click_filter_button()
-        assert "No results!" in products_page.page_source
+        # assert "No results!" in products_page.page_source
+        products_page.find_in_page_source("No results!")
