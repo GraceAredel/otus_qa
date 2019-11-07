@@ -52,5 +52,4 @@ class TestProductsPage:
         assert alert.text == "Success: You have modified products!\n×"
         products_page.fill_product_name_filter("delete me")
         products_page.click_filter_button()
-        # assert "No results!" in products_page.page_source
         products_page.find_in_page_source("No results!")
