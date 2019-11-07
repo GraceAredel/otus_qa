@@ -53,16 +53,9 @@ class TestsLogin:
     """tests for admin page"""
 
     def test_admin_login(self, admin_page, base_page,
-                         login="admin", password="moonlight"):
+                         login="user", password="bitnami1"):
         """test to check login function"""
         admin_page.login(login, password)
         h1 = base_page._get_element(*BaseLocators.H1)
         assert h1.text == "Dashboard"
 
-    def test_reset_password(self, admin_page, base_page,
-                            email="kataramoonlight@gmail.com"):
-        """test to check reset password function"""
-        admin_page.reset_password(email)
-        alert = base_page.find_alert()
-        assert alert.text == "An email with a confirmation link " \
-                             "has been sent your admin email address.\n×"

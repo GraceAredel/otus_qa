@@ -41,8 +41,8 @@ class ProductsPage(BasePage):
         btn[2].click()
 
     def fill_product_name_filter(self, keys):
-        elements = self.driver.find_elements(*ProductPageLocators.PRODUCT_NAME_FILTER)
-        ActionChains(self.driver).send_keys_to_element(elements[1], keys).perform()
+        element = self.driver.find_element(*ProductPageLocators.PRODUCT_NAME_FILTER)
+        ActionChains(self.driver).send_keys_to_element(element, keys).perform()
 
     def fill_product_name_field(self, keys):
         element = self.driver.find_element(*ProductPageLocators.PRODUCT_NAME)
