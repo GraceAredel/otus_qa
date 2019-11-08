@@ -1,9 +1,10 @@
-import pytest
-from selenium import webdriver
 from urllib import parse
 
+import pytest
+from selenium import webdriver
+
 from page_objects.admin_page import AdminPage
-from page_objects.products_page import ProductsPage
+from page_objects.catalog_page import CatalogPage
 
 
 def pytest_addoption(parser):
@@ -75,12 +76,12 @@ def add_token(url, login):
 
 @pytest.mark.usefixtures("login")
 @pytest.fixture(scope="function", autouse=True)
-def products_page(request, driver, login):
+def catalog_page(request, driver, login):
     """fixture for opening a page and declaring a driver"""
     url = request.config.getoption("--address") + \
-        "admin/index.php?route=catalog/product" + "&user_token=" + login
+        "admin/index.php?route=common/dashboard" + "&user_token=" + login
     driver.get(url)
-    return ProductsPage(driver)
+    return CatalogPage(driver)
 
 
 @pytest.fixture(scope="function")
