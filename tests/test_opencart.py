@@ -58,3 +58,4 @@ class TestsLogin:
         admin_page.login(login, password)
         h1 = base_page._get_element(*BaseLocators.H1)
         assert h1.text == "Dashboard"
+

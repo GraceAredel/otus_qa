@@ -1,4 +1,5 @@
 from urllib import parse
+import logging
 
 import pytest
 from selenium import webdriver
@@ -17,6 +18,15 @@ def pytest_addoption(parser):
                      default=0, help="Waiting")
 
 
+@pytest.fixture(scope="session")
+def logger():
+    logger = logging.getLogger(__name__)
+    logging.basicConfig(filename="logs.log", filemode='w', level=logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+
+
+@pytest.mark.usefixtures("logger")
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
@@ -27,7 +37,7 @@ def driver(request):
     elif browser == 'chrome':
         wd = webdriver.Chrome()
     else:
-        print("Internet Explorer is a crap!")
+        logger.warning("Unsupported browser!")
         wd = webdriver.Ie()
 
     wd.implicitly_wait(time_to_wait)
@@ -41,6 +51,7 @@ def opencart(request):
     return request.config.getoption("--address")
 
 
+@pytest.mark.usefixtures("logger")
 @pytest.fixture(scope="session")
 def login(driver, request):
     """login to admin page"""
@@ -52,6 +63,7 @@ def login(driver, request):
     parsed = parse.urlparse(current_url)
     parse.parse_qs(parsed.query)
     token = parse.parse_qs(parsed.query)['user_token'][0]
+    logger.info("User has logged in!")
     return token
 
 
@@ -89,3 +101,4 @@ def refresh_page(driver):
     driver.refresh()
     yield
     driver.refresh()
+
