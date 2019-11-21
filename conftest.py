@@ -21,9 +21,9 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="session")
 def logger():
     logger = logging.getLogger(__name__)
+    logger.info("simple logging message")
     logging.basicConfig(filename="logs.log", filemode='w', level=logging.DEBUG)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
+    logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
 @pytest.mark.usefixtures("logger")
@@ -51,7 +51,6 @@ def opencart(request):
     return request.config.getoption("--address")
 
 
-@pytest.mark.usefixtures("logger")
 @pytest.fixture(scope="session")
 def login(driver, request):
     """login to admin page"""
@@ -63,7 +62,6 @@ def login(driver, request):
     parsed = parse.urlparse(current_url)
     parse.parse_qs(parsed.query)
     token = parse.parse_qs(parsed.query)['user_token'][0]
-    logger.info("User has logged in!")
     return token
 
 

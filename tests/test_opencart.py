@@ -47,6 +47,7 @@ class TestBase:
                              "iPhone to your shopping cart!\n×"
 
 
+@pytest.mark.usefixtures("logger")
 @pytest.mark.usefixtures("admin_page")
 @pytest.mark.usefixtures("base_page")
 class TestsLogin:
