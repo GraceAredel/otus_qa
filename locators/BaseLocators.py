@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 class BaseLocators(object):
     """A class for Main Page locators and also for locators
     which presented on every page"""
+    NON_EXISTING_ELEMENT = (By.CSS_SELECTOR, "non-existing-selector")
     TOP_MENU = (By.ID, "top")
     SEARCH_INPUT = (By.CSS_SELECTOR, ".form-control")
     SEARCH_BUTTON = (By.CSS_SELECTOR, ".btn-default")

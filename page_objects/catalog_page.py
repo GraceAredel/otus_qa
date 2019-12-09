@@ -106,3 +106,14 @@ class CatalogPage(BasePage):
 
     def set_mask(self, mask):
         self.driver.find_element(*CatalogPageLocators.MASK).send_keys(mask)
+
+    # def upload_file_script(self, filename):
+    #     fileinput = self.driver.find_element(*CatalogPageLocators.FILE)
+    #     self.driver.execute_script(
+    #         'arguments[0].style = ""; arguments[0].style.display = "block"; arguments[0].style.visibility = "visible";',
+    #         fileinput)
+    #     fileinput.send_keys(filename)
+
+    def upload_file_script(self, filename):
+        self.driver.execute_script('document.querySelector("#image0").setAttribute("value", filename)')
+        self.driver.find_element_by_css_selector("#form-upload").click()

@@ -1,5 +1,10 @@
 """main module for tests"""
+import logging
+
 import pytest
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver, AbstractEventListener
 
 from locators.BaseLocators import BaseLocators
 from page_objects.base_page import BasePage
@@ -18,6 +23,21 @@ def admin_page(request, driver):
     """fixture for opening a page and declaring a driver"""
     driver.get(request.config.getoption("--address") + "admin/")
     return AdminPage(driver)
+
+
+@pytest.fixture
+def firefox_browser(request):
+    ff_wd = EventFiringWebDriver(webdriver.Firefox(), MyListener())
+    request.addfinalizer(ff_wd.quit)
+    return ff_wd
+
+
+class MyListener(AbstractEventListener):
+    def on_exception(self, exception, driver):
+        screenshot_name = "exception.png"
+        driver.get_screenshot_as_file(screenshot_name)
+        print(f"Screenshot saved as {screenshot_name}")
+        print(exception)
 
 
 @pytest.mark.usefixtures("base_page")
@@ -57,6 +77,17 @@ class TestsLogin:
                          login="user", password="bitnami1"):
         """test to check login function"""
         admin_page.login(login, password)
+        logger = logging.getLogger("otus_qa")
         h1 = base_page._get_element(*BaseLocators.H1)
         assert h1.text == "Dashboard"
+        logger.info("User successfully logged in")
+
+
+def test_raise_listener_error(self, firefox_browser):
+    """try to find non-existing element,
+    then make a screenshot of an error"""
+    try:
+        firefox_browser.find_element(*BaseLocators.NON_EXISTING_ELEMENT)
+    except NoSuchElementException:
+        pytest.xfail("controlling fail")
 

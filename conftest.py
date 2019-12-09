@@ -1,8 +1,10 @@
 from urllib import parse
 import logging
+from datetime import datetime
 
 import pytest
 from selenium import webdriver
+from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 
 from page_objects.admin_page import AdminPage
 from page_objects.catalog_page import CatalogPage
@@ -20,13 +22,21 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session")
 def logger():
-    logger = logging.getLogger(__name__)
-    logger.info("simple logging message")
-    logging.basicConfig(filename="logs.log", filemode='w', level=logging.DEBUG)
-    logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    logger = logging.getLogger("otus_qa")
+    logger.setLevel(logging.DEBUG)
+    now = datetime.now().strftime("%Y%m%d-%Hh%M")
+    log_file = "./logs/" + now + ".log"
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.WARNING)
+    handler_format = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(message)s")
+    file_handler.setFormatter(handler_format)
+    console_handler.setFormatter(handler_format)
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
 
-@pytest.mark.usefixtures("logger")
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
@@ -43,7 +53,8 @@ def driver(request):
     wd.implicitly_wait(time_to_wait)
     wd.get(request.config.getoption("--address"))
 
-    return wd
+    yield wd
+    wd.quit()
 
 
 @pytest.fixture(scope="session")
@@ -89,7 +100,7 @@ def add_token(url, login):
 def catalog_page(request, driver, login):
     """fixture for opening a page and declaring a driver"""
     url = request.config.getoption("--address") + \
-        "admin/index.php?route=common/dashboard" + "&user_token=" + login
+          "admin/index.php?route=common/dashboard" + "&user_token=" + login
     driver.get(url)
     return CatalogPage(driver)
 
@@ -99,4 +110,3 @@ def refresh_page(driver):
     driver.refresh()
     yield
     driver.refresh()
-
