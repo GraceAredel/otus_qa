@@ -4,7 +4,6 @@ from datetime import datetime
 
 import pytest
 from selenium import webdriver
-from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 
 from page_objects.admin_page import AdminPage
 from page_objects.catalog_page import CatalogPage
