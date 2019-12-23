@@ -4949,3 +4949,20 @@ JavaScript error: , line 0: UnknownError: The operation failed for reasons unrel
 JavaScript error: resource://services-common/kinto-offline-client.js, line 603: Error: IndexedDB getLastModified() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
 JavaScript error: resource://services-common/kinto-offline-client.js, line 603: Error: IndexedDB clear() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
 1576255854361	Marionette	INFO	Stopped listening on port 35239
+1577113179973	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJFdDqt"
+1577113181109	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1577113181109	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1577113181109	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1577113181109	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1577113185060	Marionette	INFO	Listening on port 45923
+1577113185089	Marionette	WARN	TLS certificate errors will be ignored for this session
+1577113199728	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePMGozS"
+1577113200833	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1577113200833	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1577113200834	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1577113200834	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1577113204964	Marionette	INFO	Listening on port 40631
+1577113205056	Marionette	WARN	TLS certificate errors will be ignored for this session
+1577113205358	Marionette	INFO	Stopped listening on port 40631
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 149: Error: Unknown callback
+1577113207646	Marionette	INFO	Stopped listening on port 45923

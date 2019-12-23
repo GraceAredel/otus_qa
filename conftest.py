@@ -1,3 +1,4 @@
+import os
 from urllib import parse
 import logging
 from datetime import datetime
@@ -109,3 +110,9 @@ def refresh_page(driver):
     driver.refresh()
     yield
     driver.refresh()
+
+
+def _get_info_for_report_(config):
+    config.metadata['os'] = os.name
+    config.metadata['PATH'] = os.environ['PATH']
+    config.metadata['pwd'] = os.getcwd()
