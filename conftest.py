@@ -32,7 +32,8 @@ def driver(request):
     wd.implicitly_wait(time_to_wait)
     wd.get(request.config.getoption("--address"))
 
-    return wd
+    yield wd
+    wd.quit()
 
 
 @pytest.fixture(scope="session")
