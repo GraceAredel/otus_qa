@@ -1,9 +1,13 @@
+import os
+from urllib import parse
+import logging
+from datetime import datetime
+
 import pytest
 from selenium import webdriver
-from urllib import parse
 
 from page_objects.admin_page import AdminPage
-from page_objects.products_page import ProductsPage
+from page_objects.catalog_page import CatalogPage
 
 
 def pytest_addoption(parser):
@@ -16,6 +20,23 @@ def pytest_addoption(parser):
                      default=0, help="Waiting")
 
 
+@pytest.fixture(scope="session")
+def logger():
+    logger = logging.getLogger("otus_qa")
+    logger.setLevel(logging.DEBUG)
+    now = datetime.now().strftime("%Y%m%d-%Hh%M")
+    log_file = "./logs/" + now + ".log"
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.WARNING)
+    handler_format = logging.Formatter("%(asctime)s — %(name)s — %(levelname)s — %(message)s")
+    file_handler.setFormatter(handler_format)
+    console_handler.setFormatter(handler_format)
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+
 @pytest.fixture(scope="session", autouse=True)
 def driver(request):
     browser = request.config.getoption("--browser")
@@ -26,13 +47,14 @@ def driver(request):
     elif browser == 'chrome':
         wd = webdriver.Chrome()
     else:
-        print("Internet Explorer is a crap!")
+        logger.warning("Unsupported browser!")
         wd = webdriver.Ie()
 
     wd.implicitly_wait(time_to_wait)
     wd.get(request.config.getoption("--address"))
 
-    return wd
+    yield wd
+    wd.quit()
 
 
 @pytest.fixture(scope="session")
@@ -75,12 +97,12 @@ def add_token(url, login):
 
 @pytest.mark.usefixtures("login")
 @pytest.fixture(scope="function", autouse=True)
-def products_page(request, driver, login):
+def catalog_page(request, driver, login):
     """fixture for opening a page and declaring a driver"""
     url = request.config.getoption("--address") + \
-        "admin/index.php?route=catalog/product" + "&user_token=" + login
+          "admin/index.php?route=common/dashboard" + "&user_token=" + login
     driver.get(url)
-    return ProductsPage(driver)
+    return CatalogPage(driver)
 
 
 @pytest.fixture(scope="function")
@@ -88,3 +110,9 @@ def refresh_page(driver):
     driver.refresh()
     yield
     driver.refresh()
+
+
+def _get_info_for_report_(config):
+    config.metadata['os'] = os.name
+    config.metadata['PATH'] = os.environ['PATH']
+    config.metadata['pwd'] = os.getcwd()
